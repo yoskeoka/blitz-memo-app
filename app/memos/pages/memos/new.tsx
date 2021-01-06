@@ -25,7 +25,6 @@ const NewMemoPage: BlitzPage = () => {
                   user: { connect: { id: currentUser.id } },
                 },
               })
-              alert("Success!!" + JSON.stringify(memo))
               router.push(`/memos/${memo.id}`)
             } catch (error) {
               alert("Error creating memo " + JSON.stringify(error, null, 2))
