@@ -2,6 +2,7 @@
   "name": "blitz-memo",
   "version": "1.0.0",
   "scripts": {
+    "init:env": "cp .env.local.example .env.local && cp .env.test.local.example .env.test.local",
     "start": "blitz start",
     "studio": "blitz db studio",
     "build": "blitz build",
