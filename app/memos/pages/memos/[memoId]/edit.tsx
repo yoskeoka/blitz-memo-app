@@ -31,7 +31,6 @@ export const EditMemo = () => {
                   user: { connect: { id: currentUser.id } },
                 },
               })
-              alert("Success!!" + JSON.stringify(updated))
               router.push(`/memos/${updated.id}`)
             } catch (error) {
               alert("Error creating memo " + JSON.stringify(error, null, 2))
