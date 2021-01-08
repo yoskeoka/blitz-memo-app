@@ -29,10 +29,13 @@ export const EditMemo = () => {
                   title: event.target[0].value,
                   body: event.target[1].value,
                   user: { connect: { id: currentUser.id } },
+                  category: { connect: { id: 1 } },
                 },
               })
+              await setQueryData(updated)
               router.push(`/memos/${updated.id}`)
             } catch (error) {
+              console.log(error)
               alert("Error creating memo " + JSON.stringify(error, null, 2))
             }
           }
