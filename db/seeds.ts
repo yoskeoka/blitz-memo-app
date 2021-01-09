@@ -1,4 +1,5 @@
-// import db from "./index"
+import db from "./index"
+import { hashPassword } from "app/auth/auth-utils"
 
 /*
  * This seed function is executed when you run `blitz db seed`.
@@ -8,9 +9,35 @@
  * realistic data.
  */
 const seed = async () => {
-  // for (let i = 0; i < 5; i++) {
-  //   await db.project.create({ data: { name: "Project " + i } })
-  // }
+  const hashedPassword = await hashPassword("password")
+  const email = "hoge@example.com".toLowerCase()
+  const userId = (
+    await db.user.create({
+      data: { email: email, hashedPassword: hashedPassword, role: "user" },
+      select: { id: true, name: true, email: true, role: true },
+    })
+  ).id
+
+  await db.category.create({
+    data: {
+      name: "カテゴリー１",
+      memos: {
+        create: [
+          {
+            title: "メモ１",
+            body: "メモの１つ目です。",
+            user: { connect: { id: userId } },
+          },
+          {
+            title: "メモ２",
+            body: "メモの２つ目です。",
+            user: { connect: { id: userId } },
+          },
+        ],
+      },
+      user: { connect: { id: userId } },
+    },
+  })
 }
 
 export default seed
