@@ -1,6 +1,7 @@
 import React, { useState, ReactNode, PropsWithoutRef } from "react"
 import { FormProvider, useForm, UseFormOptions } from "react-hook-form"
 import * as z from "zod"
+import { Button } from "./Button"
 
 type FormProps<S extends z.ZodType<any, any>> = {
   /** All your form fields */
@@ -71,9 +72,9 @@ export function Form<S extends z.ZodType<any, any>>({
           </div>
         )}
 
-        <button type="submit" disabled={ctx.formState.isSubmitting}>
+        <Button type="submit" disabled={ctx.formState.isSubmitting}>
           {submitText}
-        </button>
+        </Button>
 
         <style global jsx>{`
           .form > * + * {

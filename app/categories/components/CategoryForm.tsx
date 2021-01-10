@@ -1,3 +1,4 @@
+import { Button } from "app/components/Button"
 import React from "react"
 
 type CategoryFormProps = {
@@ -14,7 +15,7 @@ const CategoryForm = ({ initialValues, onSubmit }: CategoryFormProps) => {
       }}
     >
       <input placeholder="カテゴリー名" defaultValue={initialValues.name} />
-      <button>Submit</button>
+      <Button>Submit</Button>
     </form>
   )
 }

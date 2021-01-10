@@ -3,6 +3,7 @@ import Layout from "app/layouts/Layout"
 import { Link, usePaginatedQuery, useRouter, BlitzPage } from "blitz"
 import getCategories from "app/categories/queries/getCategories"
 import { useCurrentUser } from "app/hooks/useCurrentUser"
+import { Button } from "app/components/Button"
 
 const ITEMS_PER_PAGE = 100
 
@@ -32,12 +33,12 @@ export const CategoriesList = () => {
         ))}
       </ul>
 
-      <button disabled={page === 0} onClick={goToPreviousPage}>
+      <Button disabled={page === 0} onClick={goToPreviousPage}>
         Previous
-      </button>
-      <button disabled={!hasMore} onClick={goToNextPage}>
+      </Button>
+      <Button disabled={!hasMore} onClick={goToNextPage}>
         Next
-      </button>
+      </Button>
     </div>
   )
 }
@@ -47,7 +48,7 @@ const CategoriesPage: BlitzPage = () => {
     <div>
       <p>
         <Link href="/categories/new">
-          <a>Create Category</a>
+          <Button>Create Category</Button>
         </Link>
       </p>
 

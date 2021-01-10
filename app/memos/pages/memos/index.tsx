@@ -3,6 +3,7 @@ import Layout from "app/layouts/Layout"
 import { Link, usePaginatedQuery, useRouter, BlitzPage } from "blitz"
 import getMemos from "app/memos/queries/getMemos"
 import { useCurrentUser } from "app/hooks/useCurrentUser"
+import { Button } from "app/components/Button"
 
 const ITEMS_PER_PAGE = 100
 
@@ -32,12 +33,12 @@ export const MemosList = () => {
         ))}
       </ul>
 
-      <button disabled={page === 0} onClick={goToPreviousPage}>
+      <Button disabled={page === 0} onClick={goToPreviousPage}>
         Previous
-      </button>
-      <button disabled={!hasMore} onClick={goToNextPage}>
+      </Button>
+      <Button disabled={!hasMore} onClick={goToNextPage}>
         Next
-      </button>
+      </Button>
     </div>
   )
 }

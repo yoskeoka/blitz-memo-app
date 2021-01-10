@@ -3,6 +3,7 @@ import Layout from "app/layouts/Layout"
 import { Link, useRouter, useQuery, useParam, BlitzPage, useMutation } from "blitz"
 import getMemo from "app/memos/queries/getMemo"
 import deleteMemo from "app/memos/mutations/deleteMemo"
+import { Button } from "app/components/Button"
 
 export const Memo = () => {
   const router = useRouter()
@@ -19,7 +20,7 @@ export const Memo = () => {
         <a>Edit</a>
       </Link>
 
-      <button
+      <Button
         type="button"
         onClick={async () => {
           if (window.confirm("This will be deleted")) {
@@ -29,7 +30,7 @@ export const Memo = () => {
         }}
       >
         Delete
-      </button>
+      </Button>
     </div>
   )
 }

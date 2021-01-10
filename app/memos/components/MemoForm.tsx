@@ -1,3 +1,4 @@
+import { Button } from "app/components/Button"
 import React from "react"
 
 type MemoFormProps = {
@@ -17,7 +18,7 @@ const MemoForm = ({ initialValues, onSubmit }: MemoFormProps) => {
       <br />
       <input placeholder="body" defaultValue={initialValues.body}></input>
       <br />
-      <button>Submit</button>
+      <Button>Submit</Button>
     </form>
   )
 }

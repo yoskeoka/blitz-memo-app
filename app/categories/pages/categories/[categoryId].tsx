@@ -3,6 +3,7 @@ import Layout from "app/layouts/Layout"
 import { Link, useRouter, useQuery, useParam, BlitzPage, useMutation } from "blitz"
 import getCategory from "app/categories/queries/getCategory"
 import deleteCategory from "app/categories/mutations/deleteCategory"
+import { Button } from "app/components/Button"
 
 export const Category = () => {
   const router = useRouter()
@@ -19,8 +20,7 @@ export const Category = () => {
         <a>Edit</a>
       </Link>
 
-      <button
-        type="button"
+      <Button
         onClick={async () => {
           if (window.confirm("This will be deleted")) {
             await deleteCategoryMutation({ where: { id: category.id } })
@@ -29,7 +29,7 @@ export const Category = () => {
         }}
       >
         Delete
-      </button>
+      </Button>
     </div>
   )
 }
